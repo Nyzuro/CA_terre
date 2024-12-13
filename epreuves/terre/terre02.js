@@ -1,7 +1,7 @@
-const procecess = require('process');
+const process = require('process');
 let i = 0;
 
-while (procecess.argv.slice(2)[i]) {
-    console.log(procecess.argv.slice(2)[i]);
+while (process.argv.slice(2)[i]) {
+    console.log(process.argv.slice(2)[i]);
     i++;
 }
