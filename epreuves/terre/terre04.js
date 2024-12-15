@@ -1,4 +1,4 @@
-const prossec = require('process');
+const process = require('process');
 const argument = process.argv[2];
 
 if (argument % 2 == 0 || argument % 2 == -0) {
