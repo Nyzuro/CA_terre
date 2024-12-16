@@ -1,7 +1,12 @@
 const argument = process.argv.slice(2)
+
+if (!argument[0]) {
+    console.log("Rentrez un argument")
+    return
+}
+
 let hours = argument[0].slice(0, 2)
 let minutes = argument[0].slice(3, 5)
-
 if (argument[0] !== (hours + ":" + minutes)) {
     console.log("Ecrivez comme ceci 00:00")
     return
