@@ -1,17 +1,17 @@
-const arguments = process.argv.slice(2, 5)
-const a = arguments[0]
-const b = arguments[1]
-const c = arguments[2]
+const arguments = process.argv.slice(2)
+const a = Number(arguments[0])
+const b = Number(arguments[1])
+const c = Number(arguments[2])
 
-if (arguments.length != 3 || process.argv[5]) {
+if (arguments.length != 3) {
     console.log("Il faut entrer 3 arguments et differents")
     return
 }
-if (a === b || b == c || c == a || c == b) {
+if (a === b || b == c || c == a) {
     console.log("erreur.")
     return
 }
-if (isNaN(arguments[0]) == true || isNaN(arguments[1]) == true || isNaN(arguments[2]) == true) {
+if (isNaN(arguments)) {
     console.log("Seul les chiffres fonctionnent")
     return
 }
