@@ -11,11 +11,11 @@ if (a === b || b == c || c == a) {
     console.log("erreur.")
     return
 }
-if (isNaN(arguments)) {
+if (isNaN(a) || isNaN(b) || isNaN(c)) {
     console.log("Seul les chiffres fonctionnent")
     return
 }
-if ((a < b || a < c) && (a > b || a > c)) {
+if ((a < b && a > c) || (a > b && a < c)) {
     console.log(a)
 }
 else if ((b < a || b < c) && (b > a || b > c)) {
