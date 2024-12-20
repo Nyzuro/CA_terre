@@ -16,7 +16,7 @@ if (!otherArguments[0]) { // pas assez d'arguments
     return
 }
 
-for (const i of otherArguments) {
+for (const i in otherArguments) {
     if (!Number.isInteger(otherArguments[i])) { // Verifie si c'est un integer
         console.log("erreur.")
         return
