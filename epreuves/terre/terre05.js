@@ -1,14 +1,20 @@
-const process = require('process');
-const argument1 = process.argv[2];
-const argument2 = process.argv[3];
+const arguments = process.argv.slice(2)
+const dividend = Number(arguments[0])
+const divider = Number(arguments[1])
 
-if (argument1 >= argument2 && argument2 != 0) {
-    const result = Math.floor(argument1 / argument2);
-    const rest = argument1 % argument2;
+if (isNaN(dividend) || isNaN(divider)) {
+    console.log("Entrez seulement des chiffres")
+    process.exit()
+}
+if (arguments.length !== 2) {
+    console.log("Entrez 2 nombres")
+    process.exit()
+}
+if (dividend >= divider && divider !== 0) {
+    const result = Math.floor(dividend / divider);
+    const rest = dividend % divider;
     console.log(`resultat: ${result}`);
     console.log(`reste: ${rest}`);
-}
-
-else {
-    console.log("erreur.")
+} else {
+    console.error("erreur.")
 }

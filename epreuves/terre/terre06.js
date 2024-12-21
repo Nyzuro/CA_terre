@@ -1,18 +1,11 @@
-const process = require('process')
-const argument = process.argv[2]
-const splitArgument = argument.split(""); // on separe chaque caractere de la chaine dans un tableau
+const arguments = process.argv.slice(2)
 let reverseArgument = ""
-let i = 0
-let j = 0;
 
-while (splitArgument[i]) {
-    i++;
+if (arguments.length != 1) {
+    console.error("1 argument svp")
+    process.exit()
 }
-i-- // pour revenir au dernier caractere et pas a undefined
-
-while (i >= 0) {
-    reverseArgument = reverseArgument + splitArgument[i]
-    i--
-    j++
+for (i = arguments[0].length; i--;) {
+    reverseArgument += arguments[0][i]
 }
 console.log(reverseArgument)
