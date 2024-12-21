@@ -3,11 +3,11 @@ const dividend = Number(arguments[0])
 const divider = Number(arguments[1])
 
 if (isNaN(dividend) || isNaN(divider)) {
-    console.log("Entrez seulement des chiffres")
+    console.error("Entrez seulement des chiffres")
     process.exit()
 }
 if (arguments.length !== 2) {
-    console.log("Entrez 2 nombres")
+    console.error("Entrez 2 nombres")
     process.exit()
 }
 if (dividend >= divider && divider !== 0) {
