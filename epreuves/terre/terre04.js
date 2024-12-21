@@ -1,14 +1,12 @@
-const process = require('process');
-const argument = process.argv[2];
+const argument = process.argv.slice(2)
+const numberArgument = Number(argument[0])
 
-if (argument % 2 == 0 || argument % 2 == -0) {
+if (argument.length !== 1 || isNaN(numberArgument)) {
+    process.exit()
+} if (numberArgument % 2 == 0 || numberArgument % 2 == -0) {
     console.log("Pair");
-}
-
-else if (argument % 2 == 1 || argument % 2 == -1) {
+} else if (numberArgument % 2 == 1 || numberArgument % 2 == -1) {
     console.log("Impair");
-}
-
-else {
-    console.log("Tu ne me la mettras pas a l'envers.")
+} else {
+    console.error("Tu ne me la mettras pas a l'envers.")
 }
