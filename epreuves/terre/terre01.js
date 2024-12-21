@@ -1,3 +1,11 @@
-const path = require('path');
-const filename = path.basename(__filename); // on prend seulement le nom du dernier fichier de la route __filename
-console.log(filename);
+const path = __filename
+let fileName = ""
+
+for (i = path.length; i--;) {
+    if (path[i] === "/") {
+        break
+    } else {
+        fileName = path.charAt(i).concat(fileName)
+    }
+}
+console.log(fileName)
