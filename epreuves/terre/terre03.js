@@ -1,12 +1,11 @@
-const process = require('process');
-const argument = process.argv[2];
-let codeAscii = argument.charCodeAt(0); //on prend le code ascii du premier caractere du deuxieme argument
-let result = '';
+const argument = process.argv.slice(2)
+let charAscii = argument[0].charCodeAt(0)
+let alphabet = ""
 
-if (codeAscii >= 97 && codeAscii <= 122) { //si ce code correspond a une lettre minuscule
-    while (codeAscii <= 122) {
-        result = result + String.fromCharCode(codeAscii); //on marque la lettre correspondant au code Ascii dans result
-        codeAscii++; // on passse a la lettre suivante
+for (; charAscii <= 122; charAscii++) {
+    if (charAscii < 97) {
+        process.exit()
     }
-    console.log(result);
+    alphabet += String.fromCharCode(charAscii)
 }
+console.log(alphabet)
