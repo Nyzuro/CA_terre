@@ -1,29 +1,26 @@
-const process = require('process')
-const argument = process.argv[2]
-let divasor = 1
+const arguments = process.argv.slice(2)
+const numberArgument = Number(arguments[0])
+
+if (isNaN(numberArgument)) {
+    console.error("Ecrivez un nombre")
+    process.exit()
+} if (arguments.length !== 1) {
+    console.error("Rentrez 1 argument")
+    process.exit()
+} if (numberArgument < 2) {
+    console.error(`Non, ${numberArgument} n'est pas un nombre premier.`)
+    process.exit()
+}
+
 let counter = 0
-
-if (argument === 0 || argument === 1 || argument < 0) {
-    console.log(`Non, ${argument} n'est pas un nombre premier.`)
-    return
-}
-
-if (isNaN(argument) == true) {
-    console.log("ecrivez un nombre")
-    return
-}
-
-while (divasor <= argument) {
-    let modulo = argument % divasor
+for (divader = 1; divader <= numberArgument; divader++) {
+    let modulo = numberArgument % divader
     if (modulo === 0) {
         counter++
     }
-    divasor++
 }
-
 if (counter === 2) {
-    console.log(`Oui, ${argument} c'est un nombre premier.`)
-}
-else {
-    console.log(`Non, ${argument} n'est pas un nombre premier.`)
+    console.log(`Oui, ${numberArgument} c'est un nombre premier.`)
+} else {
+    console.error(`Non, ${numberArgument} n'est pas un nombre premier.`)
 }
