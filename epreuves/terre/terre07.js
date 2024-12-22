@@ -1,13 +1,10 @@
-const process = require('process')
-const argument = process.argv[2]
-let i = 0
+const arguments = process.argv.slice(2)
 
-if (!argument || process.argv[3] || isNaN(argument) == false) {
-    console.log('erreur.')
-}
-else {
-    while (argument[i]) {
-        i++;
+if (arguments.length !== 1 || !isNaN(arguments[0])) {
+    console.error('erreur.')
+    process.exit()
+} else {
+    for (length = 0; arguments[0][length]; length++) {
     }
-    console.log(i)
+    console.log(length)
 }
