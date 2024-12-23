@@ -18,9 +18,9 @@ if (!/^(2[0-4]|1[0-9]|0[0-9]):([0-5][0-9])$/.test(arguments[0])) {
 }
 if (hours === 12) {
     console.log(`${hours}:${minutes}PM`)
-    return
+    process.exit()
 } if (hours === 0) {
-    console.log(`${hours}:${minutes}AM`)
+    console.log(`${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}AM`)
     process.exit()
 } if (hours > 12) {
     hours = hours - 12
