@@ -4,8 +4,8 @@ const b = Number(arguments[1])
 const c = Number(arguments[2])
 
 for (const i in arguments) {
-    if (isNaN(arguments[i])) {
-        console.error("Entrez seulement des chiffres")
+    if (isNaN(arguments[i]) || (!Number.isInteger(arguments[i]))) {
+        console.error("Entrez seulement des entiers")
         process.exit()
     }
 }
