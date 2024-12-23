@@ -1,32 +1,30 @@
-const argument = process.argv.slice(2)
+const arguments = process.argv.slice(2)
 
-if (!argument[0]) {
-    console.log("Rentrez un argument")
-    return
+if (arguments.length !== 1) {
+    console.error("Entrez 1 argument")
+    process.exit()
 }
 
-let hours = argument[0].slice(0, 2)
-let minutes = argument[0].slice(3, 5)
-if (argument[0] !== (hours + ":" + minutes)) {
-    console.log("Ecrivez comme ceci 00:00")
-    return
+let hours = Number(arguments[0].slice(0, 2))
+let minutes = Number(arguments[0].slice(3, 5))
+
+if (isNaN(hours) || isNaN(minutes)) {
+    console.error("Entrez des chiffres")
+    process.exit()
 }
-if (hours > 24) {
-    console.log("Une journee ne peut avoir que 24h")
-    return
+if (!/^(2[0-4]|1[0-9]|0[0-9]):([0-5][0-9])$/.test(arguments[0])) {
+    console.error("Ecrivez comme ceci 00:00")
+    process.exit()
 }
-if (minutes > 59) {
-    console.log("Il ne peut pas y avoir plus de 59 minutes")
-    return
-}
-if (hours == 12) {
+if (hours === 12) {
     console.log(`${hours}:${minutes}PM`)
     return
-}
-if (hours > 12) {
+} if (hours === 0) {
+    console.log(`${hours}:${minutes}AM`)
+    process.exit()
+} if (hours > 12) {
     hours = hours - 12
     console.log(`${hours}:${minutes}PM`)
-}
-else {
-    console.log(`${argument[0]}AM`)
+} else {
+    console.log(`${arguments[0]}AM`)
 }
