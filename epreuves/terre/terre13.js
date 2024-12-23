@@ -3,26 +3,23 @@ const a = Number(arguments[0])
 const b = Number(arguments[1])
 const c = Number(arguments[2])
 
-if (arguments.length != 3) {
-    console.log("Il faut entrer 3 arguments et differents")
-    return
-}
-if (a === b || b == c || c == a) {
-    console.log("erreur.")
-    return
-}
 for (const i in arguments) {
     if (isNaN(arguments[i])) {
-        console.log("erreur.")
-        return
+        console.error("Entrez seulement des chiffres")
+        process.exit()
     }
+}
+if (arguments.length != 3) {
+    console.error("Il faut entrer 3 nombres")
+    process.exit()
+} if (a === b || b === c || c === a) {
+    console.error("Deux nombres sont les memes")
+    process.exit()
 }
 if ((a < b && a > c) || (a > b && a < c)) {
     console.log(a)
-}
-else if ((b < a || b < c) && (b > a || b > c)) {
+} else if ((b < a && b > c) || (b > a && b < c)) {
     console.log(b)
-}
-else {
+} else {
     console.log(c)
 }
